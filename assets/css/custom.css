@@ -1,0 +1,164 @@
+html,
+body,
+#page-wrapper {
+    height: 100%;
+}
+
+#page-wrapper {
+    overflow-y: auto;
+    background-image: linear-gradient(109.6deg, rgba(101, 58, 150, 1) 29.9%, rgba(168, 141, 194, 1) 99.9%);
+    font-family: 'Vazir', sans-serif;
+}
+
+button.sub-btn,
+button.drop-down-btn {
+    width: 130px;
+    border: none;
+}
+
+button.drop-down-btn {
+    border-radius: 4px 4px 0 0;
+    color: #31326f;
+    background-color: #fdca40;
+    opacity: 0.85;
+}
+
+button.sub-btn {
+    padding: 12px 0;
+    border-radius: unset;
+    opacity: 0.85;
+    transition: .5s;
+}
+
+button.month-btn {
+    background-color: #fff;
+}
+
+button.spring {
+    color: #00ff7f;
+}
+
+button.spring:hover,
+button.spring.active {
+    background-color: #00ff7f;
+    color: #fff !important;
+}
+
+button.summer {
+    color: #15b2d3;
+}
+
+button.summer:hover,
+button.summer.active {
+    background-color: #15b2d3;
+    color: #fff !important;
+}
+
+button.autumn {
+    color: #f93822 !important;
+}
+
+button.autumn:hover,
+button.autumn.active {
+    background-color: #f93822 !important;
+    color: #fff !important;
+}
+
+button.winter {
+    color: #2c3d62;
+}
+
+button.winter:hover,
+button.winter.active {
+    background-color: #2c3d62;
+    color: #fff !important;
+}
+
+button.week-btn {
+    background-color: #d2d0fe;
+    color: #1a2849;
+}
+
+button.week-btn:hover,
+button.week-btn.active {
+    background-color: #1a2849;
+    color: #d2d0fe;
+}
+
+button.drop-down-btn:hover {
+    opacity: 1;
+}
+
+button.sub-btn:hover {
+    box-shadow: unset !important;
+    opacity: 1;
+}
+
+button.drop-down-btn svg {
+    width: 12px;
+}
+
+.app-wrapper {
+    border-radius: 20px;
+}
+
+.app-wrapper h4 {
+    color: rgb(0, 78, 146);
+    margin-top: 8px;
+}
+
+.app-wrapper input {
+    font-size: 14px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+.app-wrapper .expenses-title {
+    margin-bottom: 55px;
+}
+
+.app-wrapper .expenses-wrapper span.badge {
+    padding-top: 5.3px;
+    margin-bottom: 1px;
+}
+
+.app-wrapper .expenses-wrapper button {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    top: -3px;
+    left: -5.5px;
+    font-size: 20px;
+}
+
+.app-wrapper .expenses-wrapper li:last-child {
+    margin-bottom: 1.5rem !important;
+}
+
+#reset {
+    position: fixed;
+    left: 1rem;
+    bottom: 1rem;
+}
+
+#reset i {
+    vertical-align: -2px;
+}
+
+@media (min-width: 992px) {
+    .app-grid {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+    }
+}
+
+@media (max-width: 991px) {
+    .app-grid {
+        margin-bottom: 4rem !important;
+    }
+
+    #reset {
+        position: absolute;
+    }
+}
