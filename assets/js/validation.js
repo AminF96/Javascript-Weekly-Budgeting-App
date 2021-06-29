@@ -41,21 +41,13 @@ class Validation {
 
     // Comparison two numbers that one of them is greather than outher one or not
     isGreatherThan(minNum, maxNum) {
-        if (Number(minNum) > Number(maxNum)) {
-            return true;
-        }
-
-        return false;
+        return Number(minNum) > Number(maxNum);
     }
 
     // Checks if one number is less than the selected percentage of the other number
-    isLessThanPerscent(num,maxNum,percent){
-        const percMax = Number(maxNum) * (Number(percent)/100);
-        
-        if(Number(num) <percMax){
-            return true;
-        }
+    isLessThanPerscent(num, maxNum, percent) {
+        const percMax = Number(maxNum) * (Number(percent) / 100);
 
-        return false;
+        return Number(num) < percMax;
     }
 }
