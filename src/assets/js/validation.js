@@ -1,5 +1,5 @@
 // everything related to validation
-class Validation {
+export default class Validation {
 
     // check is there any element in a parent Element with chosen className
     isClassExistsIn(wrapper, className) {
@@ -15,7 +15,7 @@ class Validation {
     }
 
     // check that in an arey of objects , is there an specefic information
-    isInfoExistsInObj(info, arr) {
+    isInfoExistInArr(info, arr) {
         let existFlag = false;
         arr.map(
             obj => {

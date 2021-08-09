@@ -1,5 +1,5 @@
 // everything related to localStorage
-class LS {
+export default class LS {
     // get some information from localStorage
     getInfo(keyName) {
         let info = localStorage.getItem(keyName);

@@ -1,6 +1,15 @@
 'use strict';
+// import styles
+import '../css/bootstrap-rtl.css';
+import '../css/custom.css';
+
+// import js files
+import "./drop-down";
+import LS from "./ls";
+import UI from "./ui";
+import Budget from "./budget";
+
 // variables & constants
-const MONTHS = 'months';
 const CURRENT = 'current';
 const appWrapper = document.querySelector('.app-wrapper');
 const monthsWrapper = document.querySelector('#months');
@@ -15,8 +24,6 @@ let budget; // for create object from Budget class when user choose month and we
 // clasess
 const ui = new UI;
 const ls = new LS;
-const validation = new Validation;
-
 
 // eventListeners
 eventListeners();
@@ -24,7 +31,7 @@ eventListeners();
 function eventListeners() {
     // when page loaded
     document.addEventListener('DOMContentLoaded', (e) => {
-        if (!localStorage.getItem('current')) {
+        if (!localStorage.getItem(CURRENT)) {
             ui.hideElement(appWrapper);
             return;
         }
@@ -75,6 +82,7 @@ function eventListeners() {
         if (target.classList.contains('week-btn')) {
             ui.addActiveClass(weeksWrapper, target);
             budget = new Budget(chosenMonth, target.id);
+            form.reset();
             budget.init();
         }
     });

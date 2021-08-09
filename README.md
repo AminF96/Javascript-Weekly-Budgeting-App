@@ -3,3 +3,5 @@ a Javascript App that allows users to budget their money on a weekly basis and m
 Front End Technologies : Javascript , Bootstrap .
 
 Back End Technologies : Browser's Local storage .
+
+Module bundler : Webpack .

@@ -1,10 +1,18 @@
+// import js files
+import LS from "./ls";
+import Validation from "./validation";
+import Budget from "./budget";
+
 // everything related to UI
-class UI {
+export default class UI {
+    _lsInstance = new LS;
+    _validationInstance = new Validation;
+    _CURRENT = 'current';
 
     // add active class to an element
     addActiveClass(parentElement, element) {
         // if there was'nt any element in parentElement with active class
-        if (!validation.isClassExistsIn(parentElement, 'active')) {
+        if (!this._validationInstance.isClassExistsIn(parentElement, 'active')) {
             element.classList.add('active');
             return;
         }
@@ -44,7 +52,7 @@ class UI {
 
         // when click happens on expense delete button
         btn.addEventListener('click', (e) => {
-            new Budget().deleteExpense(e.currentTarget.id);
+            new Budget(this._lsInstance.getInfo(this._CURRENT).month,this._lsInstance.getInfo(this._CURRENT).week).deleteExpense(e.currentTarget.id);
         });
 
         return li;
@@ -52,7 +60,7 @@ class UI {
 
     // update budget app body from the object that saved in current keyname in localStorage
     updateAppBody() {
-        const info = ls.getInfo(CURRENT);
+        const info = this._lsInstance.getInfo(this._CURRENT);
 
         document.querySelector('#total-budget').innerHTML = info.budget;
         document.querySelector('#left-budget').innerHTML = info.leftBudget;
@@ -72,7 +80,9 @@ class UI {
 
     // update month and week buttons from information in localStorage
     updateMonthAndWeek() {
-        const info = ls.getInfo(CURRENT);
+        const monthsWrapper = document.querySelector('#months');
+        const weeksWrapper = document.querySelector('#weeks');
+        const info = this._lsInstance.getInfo(this._CURRENT);
 
         // fire click event on toggle buttons to show months and weeks list
         document.querySelectorAll('.drop-down-btn').forEach(btn => {
@@ -86,6 +96,8 @@ class UI {
 
     // show a message 
     showMessage(text, className) {
+        const form = document.querySelector('#form');
+
         // create message element
         const div = document.createElement('div');
         div.className = className;
@@ -109,9 +121,9 @@ class UI {
 
     // actions need to happen when left budget's evel changes
     leftAmountLevelChange(leftAmount, totalAmount) {
-        if (validation.isLessThanPerscent(leftAmount, totalAmount, 20)) {
+        if (this._validationInstance.isLessThanPerscent(leftAmount, totalAmount, 20)) {
             this._showBudgetChangeLevel(20, 'alert alert-danger');
-        } else if (validation.isLessThanPerscent(leftAmount, totalAmount, 50)) {
+        } else if (this._validationInstance.isLessThanPerscent(leftAmount, totalAmount, 50)) {
             this._showBudgetChangeLevel(50, 'alert alert-warning');
         } else {
             this._showBudgetChangeLevel(0, 'alert alert-success');
@@ -122,10 +134,10 @@ class UI {
     _showBudgetChangeLevel(percentLevel, className) {
         const leftBudget = document.querySelector('#leftBudget-wrapper');
         leftBudget.className = className;
-        
+
         if (percentLevel == 0) {
             return;
         }
-        ui.showMessage(`شما بیش از ${percentLevel} درصد از بودجه خود را خرج کرده اید`, 'alert alert-danger text-center');
+        this.showMessage(`شما بیش از ${percentLevel} درصد از بودجه خود را خرج کرده اید`, 'alert alert-danger text-center');
     }
 }
